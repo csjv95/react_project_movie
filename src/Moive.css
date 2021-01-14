@@ -1,0 +1,8 @@
+.movie {
+  margin: 1em;
+  display: flex;
+}
+
+.thumbnail {
+  margin-right: 1em;
+}
