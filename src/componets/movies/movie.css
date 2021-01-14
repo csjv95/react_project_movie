@@ -1,0 +1,34 @@
+.movie {
+  margin-bottom: 4em;
+  width: 45%;
+  min-width: 23em;
+  padding: 1em;
+  display: flex;
+  border-radius: 5%;
+  box-shadow: 8px 8px 3px 3px rgba(0,0,0,0.6);
+  background-color: rgb(255, 255, 255);
+}
+
+.thumbnail {
+  width: 50%;
+  border-radius: 5%;
+  box-shadow: 8px 20px 0px 3px rgba(0,0,0,0.23);
+}
+
+.movie_data {
+  width: 50%;
+  padding-left: 1em;
+}
+
+.movie_genres {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie_genres :first-child::before {
+  content: 'Genre : ';
+}
+
+.movie_genres li {
+  padding-right: 2px;
+}
