@@ -1,52 +1,17 @@
 import React from 'react';
-import axios from 'axios';
-import Movie from './componets/movies/movie';
-import Header from './componets/header/header';
-import './app.css';
+import {HashRouter, Route} from 'react-router-dom';
+import Home from './routes/homes/home';
+import About from './routes/abouts/about';
 
-class App extends React.Component {
-  state = {
-    isLoding: true,
-    movies : []
-  };
 
-  getMovies = async () => {
-    const {data: { 
-      data : 
-      {movies}
-    }} = await axios.get('https://yts.mx/api/v2/list_movies.json');
-    this.setState({movies, isLoding : false});
-  }
-
-  componentDidMount() {
-    this.getMovies();
-  }
-
-  render() {
-    const {isLoding, movies} = this.state;
-
-    return (
-    <main>
-      <Header />
-      <ul className='movies'>
-       {isLoding 
-       ? 'Loding...' 
-       : movies.map(movie => (
-        <Movie
-          key = {movie.id}
-          id={movie.id}
-          title={movie.title} 
-          year={movie.year} 
-          rating={movie.rating} 
-          summary={movie.summary} 
-          thumbnail={movie.medium_cover_image}
-          genres={movie.genres}
-       />
-      ))}
-      </ul>
-    </main>
-    );
-  }
+function App() {
+  return(
+    <HashRouter>
+      {/* exact 경로에 관련된 다른것들을 무시해준다 */}
+      <Route path='/' exact={true} component={Home} />
+      <Route path='/about' component={About} />
+    </HashRouter>
+  );
 }
 
 export default App;
